@@ -1,73 +1,97 @@
 package views;
-
-import dao.Dados;
-import models.*;
 import utils.Console;
 
 public class Main {
+	enum Menu {
+		SAIR,
+		CADASTRAR_CLIENTE,
+		LISTAR_CLIENTES,
+		CADASTRAR_FUNCIONARIO,
+		LISTAR_FUNCIONARIOS,
+		CADASTRAR_EMPRESTIMO,
+		LISTAR_EMPRESTIMOS,
+		CADASTRAR_LIVRO,
+		LISTAR_LIVROS,
+		LISTAR_LIVROS_EMPRESTADOS,
+		LISTAR_LIVROS_DISPONIVEIS,
+		BUSCAR_LIVRO_POR_TITULO,
+		BUSCAR_LIVRO_POR_AUTOR
+	}
 
-    public static void main(String[] args) {
-        String menu[] = new String[] {
-    			"Sair",
-    			"Cadastrar Cliente", "Listar Clientes",
-    			"Cadastrar Emprestimo", "Listar Emprestimos",
-    			"Cadastrar Funcionario", "Listar Funcionarios",
-    			"Cadastrar Livro", "Listar Livros",
-                "Listar Vendas por Cliente"
-        };
-        int opcao;
+	public static void main(String[] args) {
+		int userInput 		= 0;
+		Menu menuArray[]	= Menu.values();
+		
+		do {
+			System.out.println("[Biblioteca Alexandria]\n-----");
 
-        do {
+			for (Menu item : menuArray) {
+				String menuEntry = item.toString().toLowerCase().replaceAll("_", " ");			// Lower case and replace underscores
+				menuEntry = menuEntry.substring(0, 1).toUpperCase() + menuEntry.substring(1);	// Capitalize first letter
 
-            for (int i = 0; i < menu.length; i++) {
-                System.out.println(i + " - " + menu[i]);
-            }
+	            System.out.println(
+	            		item.ordinal()	// Index
+		    			+ " - "			// Separator
+		    			+ menuEntry		// Menu Entry
+	    		);
+	        }
 
-            opcao = Console.readInt("Informe qual menu deseja entrar: ");
+			System.out.println("-----\n");
+			userInput = Console.readInt("Opcao (default = 0): ");
 
-            switch (opcao) {
-            case 0:
-                sair();
-                break;
-            case 1:
-                CadastrarCliente.renderizar();
-                break;
-            case 2:
-                ListarClientes.renderizar();
-                break;
-            case 3:
-                CadastrarEmprestimo.renderizar();
-                break;
-            case 4:
-                ListarEmprestimos.renderizar();
-                break;
-            case 5:
-                CadastrarFuncionario.renderizar();
-                break;
-            case 6:
-                ListarFuncionarios.renderizar();
-                break;
-            case 7:
-                CadastrarLivro.renderizar();
-                break;
-            case 8:
-            	ListarLivros.renderizar();
-                break;
-            case 9:
-            	/* Listar Vendas por Clientes */
-                break;
-            default:
-                padrao();
-                break;
-            }
-        } while (opcao != 0);
-    }
+			try {
+				System.out.println("\nOpcao escolhida: [" + menuArray[userInput] + "]");
+			} catch (Exception e) {
+				System.out.println("\n[Error]: " + e.getMessage());
+				return;
+			}
+			
+			switch (menuArray[userInput]) {
+			case SAIR:
+				System.out.println("Saindo...");
+				break;
+			case CADASTRAR_CLIENTE:
+				CadastrarCliente.renderizar();
+				break;
+			case LISTAR_CLIENTES:
+				ListarClientes.renderizar();
+				break;
+			case CADASTRAR_FUNCIONARIO:
+				CadastrarFuncionario.renderizar();
+				break;
+			case LISTAR_FUNCIONARIOS:
+				ListarFuncionarios.renderizar();
+				break;
+			case CADASTRAR_EMPRESTIMO:
+				CadastrarEmprestimo.renderizar();
+				break;
+			case LISTAR_EMPRESTIMOS:
+				ListarEmprestimos.renderizar();
+				break;
+			case CADASTRAR_LIVRO:
+				CadastrarLivro.renderizar();
+				break;
+			case LISTAR_LIVROS:
+				ListarLivros.renderizar();
+				break;
+			case LISTAR_LIVROS_EMPRESTADOS:
+				// ListarLivrosEmprestados.renderizar();
+				break;
+			case LISTAR_LIVROS_DISPONIVEIS:
+				// ListarLivrosDisponiveis.renderizar();
+				break;
+			case BUSCAR_LIVRO_POR_TITULO:
+				// BuscarLivroPorTitulo.renderizar();
+				break;
+			case BUSCAR_LIVRO_POR_AUTOR:
+				// BuscarLivroPorAutor.renderizar();
+				break;
+			default:
+				System.out.println("Opcao invalida.");
+				break;
+			}
 
-    public static void sair() {
-        System.out.println("\nFechando o programa.");
-    }
+		} while (userInput != 0);
 
-    public static void padrao() {
-        System.out.println("\nOpção inválida");
-    }
+	}
 }
