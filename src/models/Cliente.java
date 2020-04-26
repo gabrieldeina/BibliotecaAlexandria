@@ -1,7 +1,5 @@
 package models;
 
-import utils.Validacao;
-
 public class Cliente {
 	/* Variables */
 	private String nome;
