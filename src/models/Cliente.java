@@ -13,7 +13,13 @@ public class Cliente {
 	/* Methods */
 	@Override
 	public String toString() {
-		return "[Cliente]: " + this.nome + " | CPF: " + this.cpf;
+		return "-----\n"
+				+ "[Cliente]: " + this.nome
+				+ "\nCPF: " + this.cpf
+				+ " | Telefone: " + this.telefone
+				+ "\nEndereco: " + this.endereco
+				+ " | Cidade: " + this.cidade
+				+ "\n-----\n";
 	}
 
 	/* Getters and setters */
@@ -26,12 +32,8 @@ public class Cliente {
 	public String getCpf() {
 		return cpf;
 	}
-	public boolean setCpf(String cpf) {
-		if(Validacao.validarCpf(cpf)) {
-			this.cpf = cpf;
-			return true;
-		}
-		return false;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 	public String getTelefone() {
 		return telefone;

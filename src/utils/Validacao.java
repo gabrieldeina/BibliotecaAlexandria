@@ -4,9 +4,10 @@ public class Validacao {
 	
 	public static Boolean validarCpf(String cpf) {
 		
-		if(cpf.length() != 11) {
+		if (cpf.length() != 11) {
 			return false;
-		}		
+		}
+
 		switch (cpf) {
 			case "00000000000": return false;
 			case "11111111111": return false;

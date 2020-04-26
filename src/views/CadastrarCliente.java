@@ -16,12 +16,15 @@ public class CadastrarCliente {
 
 		c.setNome(Console.readString("Digite o nome: "));
 		c.setCpf(Console.readString("Digite o CPF: "));
+		c.setTelefone(Console.readString("Digite o telefone (com DDD): "));
+		c.setEndereco(Console.readString("Digite o Endereco: "));
+		c.setCidade(Console.readString("Digite a Cidade: "));
 
 		if (Validacao.validarCpf(c.getCpf())) {
 			if (ClienteDAO.cadastrarCliente(c)) {
-				System.out.println("\nCLIENTE CADASTRADO!!!\n");
+				System.out.println("\nCLIENTE CADASTRADO\n");
 			} else {
-				System.out.println("\nESSE CLIENTE JA EXISTE!!!\n");
+				System.out.println("\nESSE CLIENTE JA EXISTE\n");
 			}
 		} else {
 			System.out.println("\nCPF invalido!");

@@ -1,4 +1,5 @@
 package views;
+import dao.Dados;
 import utils.Console;
 
 public class Main {
@@ -22,6 +23,9 @@ public class Main {
 		int userInput 		= 0;
 		Menu menuArray[]	= Menu.values();
 		
+		/* Cadastrar clientes, funcionarios, livros e emprestimos para teste */
+		Dados.inicializar();
+
 		do {
 			System.out.println("[Biblioteca Alexandria]\n-----");
 
