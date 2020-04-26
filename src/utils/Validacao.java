@@ -2,7 +2,7 @@ package utils;
 
 public class Validacao {
 	
-	public static Boolean validarCpf(String cpf) {
+	public static Boolean validarCpf (String cpf) {
 		
 		if (cpf.length() != 11) {
 			return false;
@@ -65,6 +65,38 @@ public class Validacao {
 		}
 		
 		return true;
+	}
+	
+	public static Boolean validarIsbn (String isbn) {
+		int sum = 0;
+
+		/* TODO: Testar validacao Isbn 10 */
+//		if (isbn.length() == 10) {
+//	        for (int i = 0; i < 10; i++) {
+//	            sum += i * Character.getNumericValue(isbn.charAt(i));
+//	        }
+//
+//	        if (Character.getNumericValue(isbn.charAt(9)) == sum % 11) {
+//	        	return true;
+//	        }
+//	    } else 
+	    
+		/* Validacao ISBN 13 */
+    	if (isbn.length() == 13) {
+	        for (int i = 0; i < 12; i++) {
+	            if (i % 2 == 0) {
+	                sum += Character.getNumericValue(isbn.charAt(i));
+	            } else {
+	                sum += Character.getNumericValue(isbn.charAt(i)) * 3;
+	            }
+	        }
+
+	        if (Character.getNumericValue(isbn.charAt(12)) == 10 - (sum % 10)) {
+	        	return true;
+	        }
+	    }
+
+	    return false;
 	}
 
 }

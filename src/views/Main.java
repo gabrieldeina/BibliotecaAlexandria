@@ -79,16 +79,16 @@ public class Main {
 				ListarLivros.renderizar();
 				break;
 			case LISTAR_LIVROS_EMPRESTADOS:
-				// ListarLivrosEmprestados.renderizar();
+				ListarLivrosEmprestados.renderizar();
 				break;
 			case LISTAR_LIVROS_DISPONIVEIS:
-				// ListarLivrosDisponiveis.renderizar();
+				ListarLivrosDisponiveis.renderizar();
 				break;
 			case BUSCAR_LIVRO_POR_TITULO:
-				// BuscarLivroPorTitulo.renderizar();
+				BuscarLivroPorTitulo.renderizar();
 				break;
 			case BUSCAR_LIVRO_POR_AUTOR:
-				// BuscarLivroPorAutor.renderizar();
+				BuscarLivroPorAutor.renderizar();
 				break;
 			default:
 				System.out.println("Opcao invalida.");

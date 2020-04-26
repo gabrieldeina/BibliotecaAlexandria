@@ -2,6 +2,7 @@ package dao;
 
 import models.Cliente;
 import models.Funcionario;
+import models.Livro;
 
 public class Dados {
 
@@ -79,6 +80,55 @@ public class Dados {
 			f.setCidade("Curitiba");
 			f.setAtivo(true);
 			FuncionarioDAO.cadastrarFuncionario(f);
+		}
+		
+		/* Cadastrar livros */
+		{
+			Livro l = new Livro();
+			l.setIdLivro(1);
+			l.setIsbn("9780547928210");
+			l.setTitulo("The Lord of the Rings: The Fellowship of the Ring");
+			l.setAutor("J.R.R. Tolkien");
+			l.setAno(1954);
+			l.setGenero("Fantasia");
+			l.setEmprestado(true);
+			LivroDAO.cadastrarLivro(l);
+		}
+		
+		{
+			Livro l = new Livro();
+			l.setIdLivro(2);
+			l.setIsbn("9780547928203");
+			l.setTitulo("The Lord of the Rings: The Two Towers");
+			l.setAutor("J.R.R. Tolkien");
+			l.setAno(1954);
+			l.setGenero("Fantasia");
+			l.setEmprestado(false);
+			LivroDAO.cadastrarLivro(l);
+		}
+		
+		{
+			Livro l = new Livro();
+			l.setIdLivro(3);
+			l.setIsbn("9780547928197");
+			l.setTitulo("The Lord of the Rings: The Return of the King");
+			l.setAutor("J.R.R. Tolkien");
+			l.setAno(1955);
+			l.setGenero("Fantasia");
+			l.setEmprestado(false);
+			LivroDAO.cadastrarLivro(l);
+		}
+		
+		{
+			Livro l = new Livro();
+			l.setIdLivro(4);
+			l.setIsbn("9780345539434");
+			l.setTitulo("Cosmos");
+			l.setAutor("Carl Sagan");
+			l.setAno(1980);
+			l.setGenero("Ciencia");
+			l.setEmprestado(true);
+			LivroDAO.cadastrarLivro(l);
 		}
 	}
 }

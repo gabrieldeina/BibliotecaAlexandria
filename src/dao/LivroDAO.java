@@ -7,18 +7,31 @@ import models.Livro;
 public class LivroDAO {
 	private static ArrayList<Livro> livros = new ArrayList<Livro>();
 
-	public static Livro buscarLivroPorTitulo(String titulo) {
+	public static ArrayList<Livro> buscarLivroPorTitulo(String titulo) {
+		ArrayList<Livro> livrosEncontrados = new ArrayList<Livro>();
+
 		for (Livro livroCadastrado : livros) {
-			if (livroCadastrado.getTitulo().equals(titulo)) {
-				return livroCadastrado;
+			if (livroCadastrado.getTitulo().contains(titulo)) {
+				livrosEncontrados.add(livroCadastrado);
 			}
 		}
-		return null;
+		return livrosEncontrados;
 	}
 	
-	public static Livro buscarLivroPorAutor(String autor) {
+	public static ArrayList<Livro> buscarLivroPorAutor(String autor) {
+		ArrayList<Livro> livrosEncontrados = new ArrayList<Livro>();
+
 		for (Livro livroCadastrado : livros) {
-			if (livroCadastrado.getAutor().equals(autor)) {
+			if (livroCadastrado.getAutor().contains(autor)) {
+				livrosEncontrados.add(livroCadastrado);
+			}
+		}
+		return livrosEncontrados;
+	}
+
+	public static Livro buscarLivroPorIsbn(String isbn) {
+		for (Livro livroCadastrado : livros) {
+			if (livroCadastrado.getIsbn().equals(isbn)) {
 				return livroCadastrado;
 			}
 		}
@@ -26,7 +39,7 @@ public class LivroDAO {
 	}
 
 	public static Boolean cadastrarLivro(Livro l) {
-		if (buscarLivroPorTitulo(l.getTitulo()) == null) {
+		if (buscarLivroPorIsbn(l.getIsbn()) == null) {
 			livros.add(l);
 			return true;
 		}
@@ -38,12 +51,24 @@ public class LivroDAO {
 	}
 	
 	public static ArrayList<Livro> retornarLivrosEmprestados() {
-		/* TODO: implementar */
-		return livros;
+		ArrayList<Livro> livrosEmprestados = new ArrayList<Livro>();
+
+		for (Livro livroCadastrado : livros) {
+			if (livroCadastrado.isEmprestado()) {
+				livrosEmprestados.add(livroCadastrado);
+			}
+		}
+		return livrosEmprestados;
 	}
 	
 	public static ArrayList<Livro> retornarLivrosDisponiveis() {
-		/* TODO: implementar */
-		return livros;
+		ArrayList<Livro> livrosDisponiveis = new ArrayList<Livro>();
+
+		for (Livro livroCadastrado : livros) {
+			if (!livroCadastrado.isEmprestado()) {
+				livrosDisponiveis.add(livroCadastrado);
+			}
+		}
+		return livrosDisponiveis;
 	}
 }

@@ -10,6 +10,20 @@ public class Livro {
 	private String genero;
 	private boolean emprestado;
 	
+	/* Methods */
+	@Override
+	public String toString() {
+		return "-----\n"
+				+ "[Livro]: " + this.titulo
+				+ ", " + this.autor
+				+ " (" + this.ano + ")"
+				+ "\nID: " + this.idLivro
+				+ " | ISBN: " + this.isbn
+				+ "\nGenero: " + this.genero
+				+ "\n[Emprestado]: " + ((this.emprestado) ? "Sim" : "Nao")
+				+ "\n-----\n";
+	}
+	
 	/* Getters and setters */
 	public int getIdLivro() {
 		return idLivro;
