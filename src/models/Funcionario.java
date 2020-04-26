@@ -1,7 +1,5 @@
 package models;
 
-import utils.Validacao;
-
 public class Funcionario {
 	/* Variables */
 	private String nome;
@@ -14,7 +12,14 @@ public class Funcionario {
 	/* Methods */
 	@Override
 	public String toString() {
-		return "[Funcionario]: " + this.nome + " | CPF: " + this.cpf;
+		return "-----\n"
+				+ "[Funcionario]: " + this.nome
+				+ "\n[Ativo]: " + ((this.ativo) ? "Sim" : "Nao")
+				+ "\nCPF: " + this.cpf 
+				+ " | Telefone: " + this.telefone
+				+ "\nEndereco: " + this.endereco
+				+ " | Cidade: " + this.cidade
+				+ "\n-----\n";
 	}
 
 	/* Getters and setters */
@@ -27,12 +32,8 @@ public class Funcionario {
 	public String getCpf() {
 		return cpf;
 	}
-	public boolean setCpf(String cpf) {
-		if(Validacao.validarCpf(cpf)) {
-			this.cpf = cpf;
-			return true;
-		}
-		return false;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 	public String getTelefone() {
 		return telefone;
