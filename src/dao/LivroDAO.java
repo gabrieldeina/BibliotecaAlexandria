@@ -17,7 +17,7 @@ public class LivroDAO {
 		}
 		return livrosEncontrados;
 	}
-	
+
 	public static ArrayList<Livro> buscarLivroPorAutor(String autor) {
 		ArrayList<Livro> livrosEncontrados = new ArrayList<Livro>();
 
@@ -27,6 +27,35 @@ public class LivroDAO {
 			}
 		}
 		return livrosEncontrados;
+	}
+
+	/**
+	 * Retorna um valor boleano para informar se o livro informado existe no sistema
+	 * 
+	 * @author gabrieldeina
+	 */
+	public static Boolean validarLivroPorId(int idLivro) {
+		for (Livro validarLivro : livros) {
+			if (validarLivro.getIdLivro() == idLivro) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * Retorna um valor boleano para informar se o livro está disponível ou não para
+	 * emprestimo
+	 * 
+	 * @author gabrieldeina
+	 */
+	public static Boolean validarDisponibilidadeLivro(int idLivro) {
+		for (Livro validarLivro : livros) {
+			if (validarLivro.isEmprestado() == false) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public static Livro buscarLivroPorIsbn(String isbn) {
@@ -49,7 +78,7 @@ public class LivroDAO {
 	public static ArrayList<Livro> retonarLivros() {
 		return livros;
 	}
-	
+
 	public static ArrayList<Livro> retornarLivrosEmprestados() {
 		ArrayList<Livro> livrosEmprestados = new ArrayList<Livro>();
 
@@ -60,7 +89,7 @@ public class LivroDAO {
 		}
 		return livrosEmprestados;
 	}
-	
+
 	public static ArrayList<Livro> retornarLivrosDisponiveis() {
 		ArrayList<Livro> livrosDisponiveis = new ArrayList<Livro>();
 

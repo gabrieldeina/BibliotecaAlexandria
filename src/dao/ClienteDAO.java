@@ -17,6 +17,15 @@ public class ClienteDAO {
 		return null;
 	}
 
+	public static Boolean validarCliente(String cpf) {
+		for (Cliente validarCliente : clientes) {
+			if (validarCliente.getCpf().equals(cpf)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public static Boolean cadastrarCliente(Cliente c) {
 		if (buscarClientePorCpf(c.getCpf()) == null) {
 			clientes.add(c);

@@ -1,4 +1,5 @@
 package views;
+
 import dao.FuncionarioDAO;
 import models.Funcionario;
 import utils.Console;
@@ -14,14 +15,13 @@ public class CadastrarFuncionario {
 
 		System.out.println("\n -- CADASTRAR FUNCIONARIO --\n ");
 
-		f.setNome(Console.readString("Digite o nome: "));
 		f.setCpf(Console.readString("Digite o CPF: "));
-		f.setTelefone(Console.readString("Digite o telefone (com DDD): "));
-		f.setEndereco(Console.readString("Digite o Endereco: "));
-		f.setCidade(Console.readString("Digite a Cidade: "));
-		f.setAtivo(true);
-
 		if (Validacao.validarCpf(f.getCpf())) {
+			f.setNome(Console.readString("Digite o nome: "));
+			f.setTelefone(Console.readString("Digite o telefone (com DDD): "));
+			f.setEndereco(Console.readString("Digite o Endereco: "));
+			f.setCidade(Console.readString("Digite a Cidade: "));
+			f.setAtivo(true);
 			if (FuncionarioDAO.cadastrarFuncionario(f)) {
 				System.out.println("\nFUNCIONARIO CADASTRADO\n");
 			} else {
