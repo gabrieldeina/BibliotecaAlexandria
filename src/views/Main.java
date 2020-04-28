@@ -36,57 +36,57 @@ public class Main {
 
 			try {
 				System.out.println("\nOpcao escolhida: [" + menuArray[userInput] + "]");
+				
+				switch (menuArray[userInput]) {
+				case SAIR:
+					System.out.println("Saindo...");
+					break;
+				case CADASTRAR_CLIENTE:
+					CadastrarCliente.renderizar();
+					break;
+				case LISTAR_CLIENTES:
+					ListarClientes.renderizar();
+					break;
+				case CADASTRAR_FUNCIONARIO:
+					CadastrarFuncionario.renderizar();
+					break;
+				case LISTAR_FUNCIONARIOS:
+					ListarFuncionarios.renderizar();
+					break;
+				case CADASTRAR_EMPRESTIMO:
+					CadastrarEmprestimo.renderizar();
+					break;
+				case LISTAR_EMPRESTIMOS:
+					ListarEmprestimos.renderizar();
+					break;
+				case CADASTRAR_LIVRO:
+					CadastrarLivro.renderizar();
+					break;
+				case LISTAR_LIVROS:
+					ListarLivros.listarLivros();
+					break;
+				case LISTAR_LIVROS_EMPRESTADOS:
+					ListarLivros.listarLivrosEmprestados();
+					break;
+				case LISTAR_LIVROS_DISPONIVEIS:
+					ListarLivros.listarLivrosDisponiveis();
+					break;
+				case BUSCAR_LIVRO_POR_TITULO:
+					ListarLivros.buscarLivroPorTitulo();
+					break;
+				case BUSCAR_LIVRO_POR_AUTOR:
+					ListarLivros.buscarLivroPorAutor();
+					break;
+				default:
+					System.out.println("Opcao invalida.");
+					break;
+				}
 			} catch (Exception e) {
 				System.out.println("\n[Error]: " + e.getMessage());
-				return;
-			}
-
-			switch (menuArray[userInput]) {
-			case SAIR:
-				System.out.println("Saindo...");
-				break;
-			case CADASTRAR_CLIENTE:
-				CadastrarCliente.renderizar();
-				break;
-			case LISTAR_CLIENTES:
-				ListarClientes.renderizar();
-				break;
-			case CADASTRAR_FUNCIONARIO:
-				CadastrarFuncionario.renderizar();
-				break;
-			case LISTAR_FUNCIONARIOS:
-				ListarFuncionarios.renderizar();
-				break;
-			case CADASTRAR_EMPRESTIMO:
-				CadastrarEmprestimo.renderizar();
-				break;
-			case LISTAR_EMPRESTIMOS:
-				ListarEmprestimos.renderizar();
-				break;
-			case CADASTRAR_LIVRO:
-				CadastrarLivro.renderizar();
-				break;
-			case LISTAR_LIVROS:
-				ListarLivros.listarLivros();
-				break;
-			case LISTAR_LIVROS_EMPRESTADOS:
-				ListarLivros.listarLivrosEmprestados();
-				break;
-			case LISTAR_LIVROS_DISPONIVEIS:
-				ListarLivros.listarLivrosDisponiveis();
-				break;
-			case BUSCAR_LIVRO_POR_TITULO:
-				ListarLivros.buscarLivroPorTitulo();
-				break;
-			case BUSCAR_LIVRO_POR_AUTOR:
-				ListarLivros.buscarLivroPorAutor();
-				break;
-			default:
-				System.out.println("Opcao invalida.");
-				break;
+				System.out.println("\nOpcao invalida.\n");
+				System.out.println("-----\n");
 			}
 
 		} while (userInput != 0);
-
 	}
 }
