@@ -7,7 +7,7 @@ public class Main {
 	enum Menu {
 		SAIR, CADASTRAR_CLIENTE, LISTAR_CLIENTES, CADASTRAR_FUNCIONARIO, LISTAR_FUNCIONARIOS, CADASTRAR_EMPRESTIMO,
 		LISTAR_EMPRESTIMOS, CADASTRAR_LIVRO, LISTAR_LIVROS, LISTAR_LIVROS_EMPRESTADOS, LISTAR_LIVROS_DISPONIVEIS,
-		BUSCAR_LIVRO_POR_TITULO, BUSCAR_LIVRO_POR_AUTOR
+		BUSCAR_LIVRO_POR_TITULO, BUSCAR_LIVRO_POR_AUTOR, DEVOLVER_LIVRO
 	}
 
 	public static void main(String[] args) {
@@ -36,7 +36,7 @@ public class Main {
 
 			try {
 				System.out.println("\nOpcao escolhida: [" + menuArray[userInput] + "]");
-				
+
 				switch (menuArray[userInput]) {
 				case SAIR:
 					System.out.println("Saindo...");
@@ -57,7 +57,7 @@ public class Main {
 					CadastrarEmprestimo.renderizar();
 					break;
 				case LISTAR_EMPRESTIMOS:
-					ListarEmprestimos.renderizar();
+					ListarEmprestimos.listarEmprestimos();
 					break;
 				case CADASTRAR_LIVRO:
 					CadastrarLivro.renderizar();
@@ -77,6 +77,10 @@ public class Main {
 				case BUSCAR_LIVRO_POR_AUTOR:
 					ListarLivros.buscarLivroPorAutor();
 					break;
+				case DEVOLVER_LIVRO:
+					CadastrarDevolucao.renderizar();
+					break;
+
 				default:
 					System.out.println("Opcao invalida.");
 					break;

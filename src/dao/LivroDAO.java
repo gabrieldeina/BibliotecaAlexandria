@@ -51,11 +51,20 @@ public class LivroDAO {
 	 */
 	public static Boolean validarDisponibilidadeLivro(int idLivro) {
 		for (Livro validarLivro : livros) {
-			if (validarLivro.isEmprestado() == false) {
-				return true;
+			if (validarLivro.getIdLivro() == idLivro && validarLivro.isEmprestado()) {
+				return false;
 			}
 		}
-		return false;
+		return true;
+	}
+
+	public static Livro buscarLivroPorIdLivro(int idLivro) {
+		for (Livro livroCadastrado : livros) {
+			if (livroCadastrado.getIdLivro() == idLivro) {
+				return livroCadastrado;
+			}
+		}
+		return null;
 	}
 
 	public static Livro buscarLivroPorIsbn(String isbn) {

@@ -17,6 +17,12 @@ public class ClienteDAO {
 		return null;
 	}
 
+	/**
+	 * Retorna um valor booleano para informar se existe um cliente cadastrado com
+	 * aquele CPF na hora do empréstimo
+	 * 
+	 * @author gabrieldeina
+	 */
 	public static Boolean validarCliente(String cpf) {
 		for (Cliente validarCliente : clientes) {
 			if (validarCliente.getCpf().equals(cpf)) {

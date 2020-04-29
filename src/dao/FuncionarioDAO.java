@@ -1,6 +1,6 @@
 package dao;
-import java.util.ArrayList;
 
+import java.util.ArrayList;
 import models.Funcionario;
 
 public class FuncionarioDAO {
@@ -15,17 +15,32 @@ public class FuncionarioDAO {
 		}
 		return null;
 	}
-	
-	public static Boolean cadastrarFuncionario(Funcionario f) {
-		if(buscarFuncionarioPorCpf(f.getCpf()) == null) {
-			funcionarios.add(f);	
-			return true;
-		}		
+
+	/**
+	 * Retorna um valor booleano para informar se existe um cliente cadastrado com
+	 * aquele CPF na hora do empréstimo
+	 * 
+	 * @author gabrieldeina
+	 */
+	public static Boolean validarFuncionario(String cpf) {
+		for (Funcionario validarFuncionario : funcionarios) {
+			if (validarFuncionario.getCpf().equals(cpf) && validarFuncionario.isAtivo() == true) {
+				return true;
+			}
+		}
 		return false;
 	}
-	
-	public static ArrayList<Funcionario> retonarFuncionarios(){
+
+	public static Boolean cadastrarFuncionario(Funcionario f) {
+		if (buscarFuncionarioPorCpf(f.getCpf()) == null) {
+			funcionarios.add(f);
+			return true;
+		}
+		return false;
+	}
+
+	public static ArrayList<Funcionario> retonarFuncionarios() {
 		return funcionarios;
 	}
-	
+
 }

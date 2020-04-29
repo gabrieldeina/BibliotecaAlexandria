@@ -48,6 +48,16 @@ public class Dados {
 			ClienteDAO.cadastrarCliente(c);
 		}
 		
+		{
+			Cliente c = new Cliente();
+			c.setNome("Gabriel Deina");
+			c.setCpf("09792676929");
+			c.setTelefone("41987836468");
+			c.setEndereco("Avenida Tulipas, 10");
+			c.setCidade("Curitiba");
+			ClienteDAO.cadastrarCliente(c);
+		}
+		
 		/* Cadastrar funcionarios */
 		{
 			Funcionario f = new Funcionario();
@@ -77,6 +87,17 @@ public class Dados {
 			f.setCpf("73962880100");
 			f.setTelefone("41988888803");
 			f.setEndereco("10th Ave, 53");
+			f.setCidade("Curitiba");
+			f.setAtivo(true);
+			FuncionarioDAO.cadastrarFuncionario(f);
+		}
+		
+		{
+			Funcionario f = new Funcionario();
+			f.setNome("Gabriel Deina");
+			f.setCpf("09792676929");
+			f.setTelefone("41987836468");
+			f.setEndereco("Rua Olimpica, 10");
 			f.setCidade("Curitiba");
 			f.setAtivo(true);
 			FuncionarioDAO.cadastrarFuncionario(f);
