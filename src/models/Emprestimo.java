@@ -68,4 +68,15 @@ public class Emprestimo {
 	public void setMulta(Multa multa) {
 		this.multa = multa;
 	}
+	
+	@Override
+	public String toString() {
+		return "-----\n"
+				+ "[Cliente]: " + this.getCliente().getNome()
+				+ "\nID Empréstimo: " + this.getIdEmprestimo()
+				+ " | Livro: " + this.getLivros().getTitulo()
+				+ " | ID Livro: " + this.getLivros().getIdLivro()
+				+ "\nStatus: " + this.getLivros().isEmprestado()
+				+ "\n-----\n";
+	}
 }

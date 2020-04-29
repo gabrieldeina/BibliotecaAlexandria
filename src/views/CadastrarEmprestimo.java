@@ -42,12 +42,13 @@ public class CadastrarEmprestimo {
 					e.setLivros(l);
 					if (LivroDAO.validarDisponibilidadeLivro(l.getIdLivro())) {
 						System.out.println("Data de Empréstimo\n");
-						Date dataValida = Console.validarData();
-						while (dataValida == null) {
+						Date dataEmprestimo = Console.validarData();
+						while (dataEmprestimo == null) {
 							System.out.println("\nData de Empréstimo\n");
-							dataValida = Console.validarData();
+							dataEmprestimo = Console.validarData();
 						}
-						e.setDataEmprestimo(dataValida);
+						e.setDataEmprestimo(dataEmprestimo);
+						e.setIdEmprestimo(Console.readInt("Informe um ID para este empréstimo: "));
 						EmprestimoDAO.cadastrarEmprestimo(e);
 						l.setEmprestado(true);
 						System.out.println("\nLIVRO EMPRESTADO COM SUCESSO PARA \n" + e.getCliente() + "\n");

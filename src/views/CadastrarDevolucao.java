@@ -29,7 +29,6 @@ public class CadastrarDevolucao {
 		if (LivroDAO.validarLivroPorId(l.getIdLivro())) {
 			if (!LivroDAO.validarDisponibilidadeLivro(l.getIdLivro())) {
 
-				System.out.println("Livro encontra-se emprestado");
 			} else {
 				System.out.println("\nLivro não encontra-se emprestado no sistema!\n");
 			}
