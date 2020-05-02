@@ -21,13 +21,13 @@ public class Main {
 			System.out.println("[Biblioteca Alexandria]\n-----");
 
 			for (Menu item : menuArray) {
-				String menuEntry = item.toString().toLowerCase().replaceAll("_", " "); // Lower case and replace
-																						// underscores
-				menuEntry = menuEntry.substring(0, 1).toUpperCase() + menuEntry.substring(1); // Capitalize first letter
+				String menuEntry = item.toString().toLowerCase().replaceAll("_", " "); 			// Lower case and replace
+																								// underscores
+				menuEntry = menuEntry.substring(0, 1).toUpperCase() + menuEntry.substring(1);	// Capitalize first letter
 
-				System.out.println(item.ordinal() // Index
-						+ " - " // Separator
-						+ menuEntry // Menu Entry
+				System.out.println(item.ordinal()	// Index
+						+ " - "						// Separator
+						+ menuEntry					// Menu Entry
 				);
 			}
 
@@ -78,9 +78,8 @@ public class Main {
 					ListarLivros.buscarLivroPorAutor();
 					break;
 				case DEVOLVER_LIVRO:
-					CadastrarDevolucao.renderizar();
+					RealizarDevolucao.renderizar();
 					break;
-
 				default:
 					System.out.println("Opcao invalida.");
 					break;
