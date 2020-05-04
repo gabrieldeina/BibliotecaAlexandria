@@ -8,17 +8,17 @@ import models.Multa;
 import utils.Console;
 
 public class RealizarDevolucao {
-	
+
 	private static Emprestimo e = new Emprestimo();
-	
+
 	public static void renderizar() {
 		e = null;
 
 		System.out.println("\n -- REALIZAR DEVOLUCAO --\n ");
 		String cpfCliente = Console.readString("Informe o CPF do cliente: ");
-		
+
 		ArrayList<Emprestimo> listaEmprestimos = EmprestimoDAO.buscarEmprestimosPorCliente(cpfCliente);
-		
+
 		if (listaEmprestimos == null) {
 			System.out.println("\nCliente nao tem emprestimos realizados!\n ");
 			return;
@@ -35,7 +35,7 @@ public class RealizarDevolucao {
 		}
 
 		System.out.println(e.getLivros());
-		char confirmacao = 'N';		// Default value
+		char confirmacao = 'N'; // Default value
 		confirmacao = Console.readChar("\nConfirmar devolucao? (y/N): ");
 
 		if (confirmacao != 'y' || confirmacao != 'Y') {
@@ -43,7 +43,7 @@ public class RealizarDevolucao {
 		}
 
 		e.getLivros().setEmprestado(false);
-		
+
 		Multa multa = new Multa(e);
 		e.setMulta(multa);
 
