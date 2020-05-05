@@ -21,7 +21,7 @@ public class Dados {
 			c.setCidade("Curitiba");
 			ClienteDAO.cadastrarCliente(c);
 		}
-		
+
 		{
 			Cliente c = new Cliente();
 			c.setNome("George Costanza");
@@ -51,7 +51,7 @@ public class Dados {
 			c.setCidade("Rio de Janeiro");
 			ClienteDAO.cadastrarCliente(c);
 		}
-		
+
 		{
 			Cliente c = new Cliente();
 			c.setNome("Gabriel Deina");
@@ -61,7 +61,7 @@ public class Dados {
 			c.setCidade("Curitiba");
 			ClienteDAO.cadastrarCliente(c);
 		}
-		
+
 		/* Cadastrar funcionarios */
 		{
 			Funcionario f = new Funcionario();
@@ -73,7 +73,7 @@ public class Dados {
 			f.setAtivo(true);
 			FuncionarioDAO.cadastrarFuncionario(f);
 		}
-		
+
 		{
 			Funcionario f = new Funcionario();
 			f.setNome("Martin Van Nostrand");
@@ -84,7 +84,7 @@ public class Dados {
 			f.setAtivo(false);
 			FuncionarioDAO.cadastrarFuncionario(f);
 		}
-		
+
 		{
 			Funcionario f = new Funcionario();
 			f.setNome("H.E. Pennypacker");
@@ -95,7 +95,7 @@ public class Dados {
 			f.setAtivo(true);
 			FuncionarioDAO.cadastrarFuncionario(f);
 		}
-		
+
 		{
 			Funcionario f = new Funcionario();
 			f.setNome("Gabriel Deina");
@@ -106,7 +106,7 @@ public class Dados {
 			f.setAtivo(true);
 			FuncionarioDAO.cadastrarFuncionario(f);
 		}
-		
+
 		/* Cadastrar livros */
 		{
 			Livro l = new Livro();
@@ -119,7 +119,7 @@ public class Dados {
 			l.setEmprestado(false);
 			LivroDAO.cadastrarLivro(l);
 		}
-		
+
 		{
 			Livro l = new Livro();
 			l.setIdLivro(2);
@@ -131,7 +131,7 @@ public class Dados {
 			l.setEmprestado(false);
 			LivroDAO.cadastrarLivro(l);
 		}
-		
+
 		{
 			Livro l = new Livro();
 			l.setIdLivro(3);
@@ -143,7 +143,7 @@ public class Dados {
 			l.setEmprestado(false);
 			LivroDAO.cadastrarLivro(l);
 		}
-		
+
 		{
 			Livro l = new Livro();
 			l.setIdLivro(4);
@@ -177,7 +177,7 @@ public class Dados {
 			e.setDataDevolucao(cal.getTime());
 			EmprestimoDAO.cadastrarEmprestimo(e);
 		}
-		
+
 		{
 			Emprestimo e = new Emprestimo();
 			e.setIdEmprestimo(2);
@@ -197,7 +197,7 @@ public class Dados {
 			e.setDataDevolucao(cal.getTime());
 			EmprestimoDAO.cadastrarEmprestimo(e);
 		}
-		
+
 		{
 			Emprestimo e = new Emprestimo();
 			e.setIdEmprestimo(3);

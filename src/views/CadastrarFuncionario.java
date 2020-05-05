@@ -17,12 +17,12 @@ public class CadastrarFuncionario {
 
 		f.setCpf(Console.readString("Digite o CPF: "));
 		if (Validacao.validarCpf(f.getCpf())) {
-			f.setNome(Console.readString("Digite o nome: "));
-			f.setTelefone(Console.readString("Digite o telefone (com DDD): "));
-			f.setEndereco(Console.readString("Digite o Endereco: "));
-			f.setCidade(Console.readString("Digite a Cidade: "));
-			f.setAtivo(true);
 			if (FuncionarioDAO.cadastrarFuncionario(f)) {
+				f.setNome(Console.readString("Digite o nome: "));
+				f.setTelefone(Console.readString("Digite o telefone (com DDD): "));
+				f.setEndereco(Console.readString("Digite o Endereco: "));
+				f.setCidade(Console.readString("Digite a Cidade: "));
+				f.setAtivo(true);
 				System.out.println("\nFUNCIONARIO CADASTRADO\n");
 			} else {
 				System.out.println("\nESSE FUNCIONARIO JA EXISTE\n");

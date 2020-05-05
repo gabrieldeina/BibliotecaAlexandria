@@ -2,7 +2,9 @@ package views;
 
 import java.util.ArrayList;
 
+import dao.ClienteDAO;
 import dao.EmprestimoDAO;
+import models.Cliente;
 import models.Emprestimo;
 import models.Multa;
 import utils.Console;
@@ -10,41 +12,43 @@ import utils.Console;
 public class RealizarDevolucao {
 
 	private static Emprestimo e = new Emprestimo();
+	private static Cliente c = new Cliente();
 
 	public static void renderizar() {
-		e = null;
+		e = new Emprestimo();
+		c = new Cliente();
 
 		System.out.println("\n -- REALIZAR DEVOLUCAO --\n ");
-		String cpfCliente = Console.readString("Informe o CPF do cliente: ");
+		c.setCpf(Console.readString("Informe o CPF do cliente: "));
+		c = ClienteDAO.buscarClientePorCpf(c.getCpf());
 
-		ArrayList<Emprestimo> listaEmprestimos = EmprestimoDAO.buscarEmprestimosPorCliente(cpfCliente);
+		if (c != null) {
+			ArrayList<Emprestimo> listaEmprestimos = EmprestimoDAO.buscarEmprestimosPorCliente(c.getCpf());
 
-		if (listaEmprestimos == null) {
-			System.out.println("\nCliente nao tem emprestimos realizados!\n ");
-			return;
-		}
+			if (listaEmprestimos != null) {
+				e.setIdEmprestimo(Console.readInt("Informe o ID do emprestimo: "));
+				e = EmprestimoDAO.buscarEmprestimoPorId(e.getIdEmprestimo());
 
-		while (e == null) {
-			int idEmprestimo = Console.readInt("Informe o ID do emprestimo: ");
+				System.out.println(e.getLivros());
 
-			for (Emprestimo emprestimo : listaEmprestimos) {
-				if (idEmprestimo == emprestimo.getIdEmprestimo()) {
-					e = emprestimo;
+				e.getLivros().setEmprestado(false);
+
+				Multa multa = new Multa(e);
+				e.setMulta(multa);
+
+				if (e.getMulta().getValor() == 0.0) {
+					System.out.println("\nLivro retornado sem multa!\n");
+				} else {
+					System.out.println("\nLivro retornado com multa de: R$" + e.getMulta().getValor() + ".\n");
 				}
+
+			} else {
+				System.out.println("\nCliente nao tem emprestimos realizados!\n ");
+				return;
 			}
-		}
 
-		System.out.println(e.getLivros());
-
-		e.getLivros().setEmprestado(false);
-
-		Multa multa = new Multa(e);
-		e.setMulta(multa);
-
-		if (e.getMulta().getValor() == 0.0) {
-			System.out.println("\nLivro retornado sem multa!\n");
 		} else {
-			System.out.println("\nLivro retornado com multa de: R$" + e.getMulta().getValor() + ".\n");
+			System.out.println("\nCLIENTE NAO EXISTE\n");
 		}
 
 	}

@@ -6,9 +6,9 @@ public class Multa {
 	/* Variables */
 	private Double valor;
 	private Emprestimo emprestimo;
-	
+
 	/* Constructor */
-	public Multa (Emprestimo emprestimo) {
+	public Multa(Emprestimo emprestimo) {
 		this.emprestimo = emprestimo;
 		this.valor = calcularMulta();
 	}
@@ -17,7 +17,7 @@ public class Multa {
 	public Double calcularMulta() {
 		Date dateNow = new Date();
 		Double valorMulta = 0.0;
-		
+
 		/* Livro retornado sem multa */
 		if (this.emprestimo.getDataDevolucao().after(dateNow)) {
 			return valorMulta;
@@ -31,10 +31,8 @@ public class Multa {
 
 			valorMulta += 0.50 * diffDays;
 
-			System.out.println("A diferenca entre "
-					  + dateNow + " e "
-					  + this.emprestimo.getDataDevolucao() + " = "
-					  + diffDays + " dias.");
+			System.out.println("A diferenca entre " + dateNow + " e " + this.emprestimo.getDataDevolucao() + " = "
+					+ diffDays + " dias.");
 		}
 
 		return valorMulta;
@@ -44,12 +42,15 @@ public class Multa {
 	public Double getValor() {
 		return valor;
 	}
+
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
+
 	public Emprestimo getEmprestimo() {
 		return emprestimo;
 	}
+
 	public void setEmprestimo(Emprestimo emprestimo) {
 		this.emprestimo = emprestimo;
 	}
