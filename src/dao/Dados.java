@@ -1,6 +1,10 @@
 package dao;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import models.Cliente;
+import models.Emprestimo;
 import models.Funcionario;
 import models.Livro;
 
@@ -112,7 +116,7 @@ public class Dados {
 			l.setAutor("J.R.R. Tolkien");
 			l.setAno(1954);
 			l.setGenero("Fantasia");
-			l.setEmprestado(true);
+			l.setEmprestado(false);
 			LivroDAO.cadastrarLivro(l);
 		}
 		
@@ -148,8 +152,69 @@ public class Dados {
 			l.setAutor("Carl Sagan");
 			l.setAno(1980);
 			l.setGenero("Ciencia");
-			l.setEmprestado(true);
+			l.setEmprestado(false);
 			LivroDAO.cadastrarLivro(l);
+		}
+
+		/* Cadastrar emprestimos */
+		Date dateNow = new Date();
+
+		Calendar cal = Calendar.getInstance();
+
+		{
+			Emprestimo e = new Emprestimo();
+			e.setIdEmprestimo(1);
+			e.setCliente(ClienteDAO.buscarClientePorCpf("21513124536"));
+			e.setFuncionario(FuncionarioDAO.buscarFuncionarioPorCpf("83546586271"));
+			e.setLivros(LivroDAO.buscarLivroPorIdLivro(1));
+			e.getLivros().setEmprestado(true);
+			e.setMulta(null);
+
+			cal.setTime(dateNow);
+			cal.add(Calendar.DATE, 3);
+
+			e.setDataEmprestimo(dateNow);
+			e.setDataDevolucao(cal.getTime());
+			EmprestimoDAO.cadastrarEmprestimo(e);
+		}
+		
+		{
+			Emprestimo e = new Emprestimo();
+			e.setIdEmprestimo(2);
+			e.setCliente(ClienteDAO.buscarClientePorCpf("21513124536"));
+			e.setFuncionario(FuncionarioDAO.buscarFuncionarioPorCpf("73962880100"));
+			e.setLivros(LivroDAO.buscarLivroPorIdLivro(2));
+			e.getLivros().setEmprestado(true);
+			e.setMulta(null);
+
+			cal.setTime(dateNow);
+			cal.add(Calendar.DATE, -5);
+
+			e.setDataEmprestimo(cal.getTime());
+
+			cal.setTime(dateNow);
+			cal.add(Calendar.DATE, -2);
+			e.setDataDevolucao(cal.getTime());
+			EmprestimoDAO.cadastrarEmprestimo(e);
+		}
+		
+		{
+			Emprestimo e = new Emprestimo();
+			e.setIdEmprestimo(3);
+			e.setCliente(ClienteDAO.buscarClientePorCpf("09792676929"));
+			e.setFuncionario(FuncionarioDAO.buscarFuncionarioPorCpf("83546586271"));
+			e.setLivros(LivroDAO.buscarLivroPorIdLivro(4));
+			e.getLivros().setEmprestado(true);
+			e.setMulta(null);
+
+			cal.setTime(dateNow);
+			cal.add(Calendar.DATE, -4);
+
+			e.setDataEmprestimo(cal.getTime());
+
+			cal.add(Calendar.DATE, 2);
+			e.setDataDevolucao(cal.getTime());
+			EmprestimoDAO.cadastrarEmprestimo(e);
 		}
 	}
 }

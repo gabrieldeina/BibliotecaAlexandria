@@ -73,10 +73,12 @@ public class Emprestimo {
 	public String toString() {
 		return "-----\n"
 				+ "[Cliente]: " + this.getCliente().getNome()
+				+ " | CPF: " + this.getCliente().getCpf()
 				+ "\nID Empréstimo: " + this.getIdEmprestimo()
 				+ " | Livro: " + this.getLivros().getTitulo()
 				+ " | ID Livro: " + this.getLivros().getIdLivro()
-				+ "\nStatus: " + this.getLivros().isEmprestado()
+				+ "\nData Emprestimo: " + this.getDataEmprestimo()
+				+ " | Data Devolucao: " + this.getDataDevolucao()
 				+ "\n-----\n";
 	}
 }

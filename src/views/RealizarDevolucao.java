@@ -35,12 +35,6 @@ public class RealizarDevolucao {
 		}
 
 		System.out.println(e.getLivros());
-		char confirmacao = 'N'; // Default value
-		confirmacao = Console.readChar("\nConfirmar devolucao? (y/N): ");
-
-		if (confirmacao != 'y' || confirmacao != 'Y') {
-			return;
-		}
 
 		e.getLivros().setEmprestado(false);
 

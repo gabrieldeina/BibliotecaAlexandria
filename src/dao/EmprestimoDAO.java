@@ -28,9 +28,18 @@ public class EmprestimoDAO {
 		}
 		return null;
 	}
+	
+	public static Emprestimo buscarEmprestimoPorId(int id) {
+		for (Emprestimo emprestimoCadastrado : emprestimos) {
+			if (emprestimoCadastrado.getIdEmprestimo() == id) {
+				return emprestimoCadastrado;
+			}
+		}
+		return null;
+	}
 
 	public static Boolean cadastrarEmprestimo(Emprestimo e) {
-		if(buscarEmprestimoPorCliente(e.getCliente().getCpf()) == null) {
+		if (buscarEmprestimoPorId(e.getIdEmprestimo()) == null ) {
 			emprestimos.add(e);	
 			return true;
 		}

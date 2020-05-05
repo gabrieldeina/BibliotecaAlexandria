@@ -19,7 +19,7 @@ public class Multa {
 		Double valorMulta = 0.0;
 		
 		/* Livro retornado sem multa */
-		if (this.emprestimo.getDataDevolucao().before(dateNow)) {
+		if (this.emprestimo.getDataDevolucao().after(dateNow)) {
 			return valorMulta;
 		} else {
 			/* Valor inicial da multa */
