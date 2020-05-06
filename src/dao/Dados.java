@@ -15,6 +15,7 @@ public class Dados {
 		{
 			Cliente c = new Cliente();
 			c.setNome("Jerry Seinfeld");
+			c.setSexo("Masculino");
 			c.setCpf("21513124536");
 			c.setRg("123456789");
 			c.setTelefone("41999999901");
@@ -26,6 +27,7 @@ public class Dados {
 		{
 			Cliente c = new Cliente();
 			c.setNome("George Costanza");
+			c.setSexo("Masculino");
 			c.setCpf("05231357693");
 			c.setRg("234567890");
 			c.setTelefone("41999999902");
@@ -37,6 +39,7 @@ public class Dados {
 		{
 			Cliente c = new Cliente();
 			c.setNome("Elaine Benes");
+			c.setSexo("Feminino");
 			c.setCpf("29640837385");
 			c.setRg("987654321");
 			c.setTelefone("11999999903");
@@ -48,6 +51,7 @@ public class Dados {
 		{
 			Cliente c = new Cliente();
 			c.setNome("Cosmo Kramer");
+			c.setSexo("Masculino");
 			c.setCpf("84701617091");
 			c.setRg("098765432");
 			c.setTelefone("21999999904");
@@ -59,6 +63,7 @@ public class Dados {
 		{
 			Cliente c = new Cliente();
 			c.setNome("Gabriel Deina");
+			c.setSexo("Masculino");
 			c.setCpf("09792676929");
 			c.setRg("102938475");
 			c.setTelefone("41987836468");

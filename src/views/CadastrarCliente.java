@@ -20,6 +20,11 @@ public class CadastrarCliente {
 			if (ClienteDAO.cadastrarCliente(c)) {
 				c.setNome(Console.readString("Digite o nome: "));
 				c.setRg(Console.readString("Digite o RG: "));
+
+				do {
+					c.setSexo(Console.readString("Informe o sexo do cliente Masculino | Feminino: "));
+				} while (!c.getSexo().equals("Masculino") && !c.getSexo().equals("Feminino"));
+
 				c.setTelefone(Console.readString("Digite o telefone (com DDD): "));
 				c.setEndereco(Console.readString("Digite o Endereco: "));
 				c.setCidade(Console.readString("Digite a Cidade: "));
