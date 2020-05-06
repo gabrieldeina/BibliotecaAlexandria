@@ -50,7 +50,7 @@ public class CadastrarEmprestimo {
 						e.setDataEmprestimo(dataEmprestimo);
 						e.setIdEmprestimo(Console.readInt("Informe um ID para este empréstimo: "));
 						EmprestimoDAO.cadastrarEmprestimo(e);
-						l.setEmprestado(true);
+						e.getLivros().setEmprestado(true);
 
 						System.out.println("\nLIVRO EMPRESTADO COM SUCESSO PARA \n" + e.getCliente() + "\n");
 

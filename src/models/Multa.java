@@ -26,12 +26,12 @@ public class Multa {
 			valorMulta = 5.0;
 
 			/* Adicionando 0,50 centavos por dia */
-			long diffTime = dateNow.getTime() - this.emprestimo.getDataDevolucao().getTime();
+			long diffTime = dateNow.getTime() - this.emprestimo.getDataADevolver().getTime();
 			long diffDays = diffTime / (1000 * 60 * 60 * 24);
 
 			valorMulta += 0.50 * diffDays;
 
-			System.out.println("A diferenca entre " + dateNow + " e " + this.emprestimo.getDataDevolucao() + " = "
+			System.out.println("A diferenca entre " + dateNow + " e " + this.emprestimo.getDataADevolver() + " = "
 					+ diffDays + " dias.");
 		}
 

@@ -174,7 +174,6 @@ public class Dados {
 			cal.add(Calendar.DATE, 3);
 
 			e.setDataEmprestimo(dateNow);
-			e.setDataDevolucao(cal.getTime());
 			EmprestimoDAO.cadastrarEmprestimo(e);
 		}
 
@@ -193,8 +192,6 @@ public class Dados {
 			e.setDataEmprestimo(cal.getTime());
 
 			cal.setTime(dateNow);
-			cal.add(Calendar.DATE, -2);
-			e.setDataDevolucao(cal.getTime());
 			EmprestimoDAO.cadastrarEmprestimo(e);
 		}
 
@@ -208,12 +205,10 @@ public class Dados {
 			e.setMulta(null);
 
 			cal.setTime(dateNow);
-			cal.add(Calendar.DATE, -4);
+			cal.add(Calendar.DATE, -25);
 
 			e.setDataEmprestimo(cal.getTime());
 
-			cal.add(Calendar.DATE, 2);
-			e.setDataDevolucao(cal.getTime());
 			EmprestimoDAO.cadastrarEmprestimo(e);
 		}
 	}

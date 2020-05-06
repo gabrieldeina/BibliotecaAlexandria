@@ -1,6 +1,7 @@
 package views;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import dao.ClienteDAO;
 import dao.EmprestimoDAO;
@@ -31,6 +32,7 @@ public class RealizarDevolucao {
 
 				System.out.println(e.getLivros());
 
+				e.setDataDevolucao(new Date());		// Pega data atual
 				e.getLivros().setEmprestado(false);
 				e.setDevolucaoRealizada(true);
 

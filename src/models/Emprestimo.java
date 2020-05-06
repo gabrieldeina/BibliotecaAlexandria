@@ -1,5 +1,6 @@
 package models;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Emprestimo {
@@ -9,9 +10,26 @@ public class Emprestimo {
 	private Funcionario funcionario;
 	private Livro livros;
 	private Date dataEmprestimo;
+	private Date dataADevolver;
 	private Date dataDevolucao;
 	private Multa multa;
 	private boolean devolucaoRealizada;
+	
+	/* Constructor */
+	public Emprestimo(Date dataEmprestimo) {
+		if (dataEmprestimo != null) {
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(dataEmprestimo);
+			cal.add(Calendar.DATE, 15);
+
+			this.dataADevolver = cal.getTime();
+			this.dataEmprestimo = dataEmprestimo;
+		}
+	}
+	
+	public Emprestimo() {
+		/* Empty constructor */
+	}
 
 	/* Getters and setters */
 	public int getIdEmprestimo() {
@@ -51,6 +69,11 @@ public class Emprestimo {
 	}
 
 	public void setDataEmprestimo(Date dataEmprestimo) {
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(dataEmprestimo);
+		cal.add(Calendar.DATE, 15);
+
+		this.dataADevolver = cal.getTime();
 		this.dataEmprestimo = dataEmprestimo;
 	}
 
@@ -77,7 +100,15 @@ public class Emprestimo {
 	public void setDevolucaoRealizada(boolean devolucaoRealizada) {
 		this.devolucaoRealizada = devolucaoRealizada;
 	}
-	
+
+	public Date getDataADevolver() {
+		return dataADevolver;
+	}
+
+	public void setDataADevolver(Date dataADevolver) {
+		this.dataADevolver = dataADevolver;
+	}
+
 	@Override
 	public String toString() {
 		return "-----\n"
@@ -87,6 +118,7 @@ public class Emprestimo {
 				+ " | Livro: " + this.getLivros().getTitulo()
 				+ " | ID Livro: " + this.getLivros().getIdLivro()
 				+ "\nData Emprestimo: " + this.getDataEmprestimo()
+				+ " | Data a Devolver: " + this.getDataADevolver()
 				+ " | Data Devolucao: " + this.getDataDevolucao()
 				+ "\n[Devolucao Relizada]: " + ((this.devolucaoRealizada) ? "Sim" : "Nao")
 				+ "\n-----\n";
