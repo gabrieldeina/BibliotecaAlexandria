@@ -19,6 +19,7 @@ public class CadastrarCliente {
 		if (Validacao.validarCpf(c.getCpf())) {
 			if (ClienteDAO.cadastrarCliente(c)) {
 				c.setNome(Console.readString("Digite o nome: "));
+				c.setRg(Console.readString("Digite o RG: "));
 				c.setTelefone(Console.readString("Digite o telefone (com DDD): "));
 				c.setEndereco(Console.readString("Digite o Endereco: "));
 				c.setCidade(Console.readString("Digite a Cidade: "));

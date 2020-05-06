@@ -4,6 +4,7 @@ public class Cliente {
 	/* Variables */
 	private String nome;
 	private String cpf;
+	private String rg;
 	private String telefone;
 	private String endereco;
 	private String cidade;
@@ -14,6 +15,7 @@ public class Cliente {
 		return "-----\n"
 				+ "[Cliente]: " + this.nome
 				+ "\nCPF: " + this.cpf
+				+ " | RG: " + this.rg
 				+ " | Telefone: " + this.telefone
 				+ "\nEndereco: " + this.endereco
 				+ " | Cidade: " + this.cidade
@@ -50,5 +52,11 @@ public class Cliente {
 	}
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
+	}
+	public String getRg() {
+		return rg;
+	}
+	public void setRg(String rg) {
+		this.rg = rg;
 	}
 }
