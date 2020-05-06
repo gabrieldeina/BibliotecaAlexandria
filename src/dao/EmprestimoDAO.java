@@ -19,6 +19,18 @@ public class EmprestimoDAO {
 		}
 		return emprestimosEncontrados;
 	}
+	
+	public static ArrayList<Emprestimo> buscarEmprestimosSemDevolucaoPorCliente(String cpf) {
+		ArrayList<Emprestimo> emprestimosEncontrados = new ArrayList<Emprestimo>();
+
+		for (Emprestimo emprestimoCadastrado : emprestimos) {
+			if (emprestimoCadastrado.getCliente().getCpf().equals(cpf) && !emprestimoCadastrado.isDevolucaoRealizada()) {
+				emprestimosEncontrados.add(emprestimoCadastrado);
+				System.out.println(emprestimoCadastrado);
+			}
+		}
+		return emprestimosEncontrados;
+	}
 
 	public static Emprestimo buscarEmprestimoPorCliente(String cpf) {
 		for (Emprestimo emprestimoCadastrado : emprestimos) {

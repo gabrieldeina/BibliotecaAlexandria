@@ -23,15 +23,16 @@ public class RealizarDevolucao {
 		c = ClienteDAO.buscarClientePorCpf(c.getCpf());
 
 		if (c != null) {
-			ArrayList<Emprestimo> listaEmprestimos = EmprestimoDAO.buscarEmprestimosPorCliente(c.getCpf());
+			ArrayList<Emprestimo> listaEmprestimos = EmprestimoDAO.buscarEmprestimosSemDevolucaoPorCliente(c.getCpf());
 
-			if (listaEmprestimos != null) {
+			if (listaEmprestimos != null && !listaEmprestimos.isEmpty()) {
 				e.setIdEmprestimo(Console.readInt("Informe o ID do emprestimo: "));
 				e = EmprestimoDAO.buscarEmprestimoPorId(e.getIdEmprestimo());
 
 				System.out.println(e.getLivros());
 
 				e.getLivros().setEmprestado(false);
+				e.setDevolucaoRealizada(true);
 
 				Multa multa = new Multa(e);
 				e.setMulta(multa);
@@ -43,7 +44,7 @@ public class RealizarDevolucao {
 				}
 
 			} else {
-				System.out.println("\nCliente nao tem emprestimos realizados!\n ");
+				System.out.println("\nCliente nao tem emprestimos ativos!\n ");
 				return;
 			}
 

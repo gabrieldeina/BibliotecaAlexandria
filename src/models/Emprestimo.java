@@ -11,6 +11,7 @@ public class Emprestimo {
 	private Date dataEmprestimo;
 	private Date dataDevolucao;
 	private Multa multa;
+	private boolean devolucaoRealizada;
 
 	/* Getters and setters */
 	public int getIdEmprestimo() {
@@ -69,6 +70,14 @@ public class Emprestimo {
 		this.multa = multa;
 	}
 	
+	public boolean isDevolucaoRealizada() {
+		return devolucaoRealizada;
+	}
+
+	public void setDevolucaoRealizada(boolean devolucaoRealizada) {
+		this.devolucaoRealizada = devolucaoRealizada;
+	}
+	
 	@Override
 	public String toString() {
 		return "-----\n"
@@ -79,6 +88,7 @@ public class Emprestimo {
 				+ " | ID Livro: " + this.getLivros().getIdLivro()
 				+ "\nData Emprestimo: " + this.getDataEmprestimo()
 				+ " | Data Devolucao: " + this.getDataDevolucao()
+				+ "\n[Devolucao Relizada]: " + ((this.devolucaoRealizada) ? "Sim" : "Nao")
 				+ "\n-----\n";
 	}
 }
